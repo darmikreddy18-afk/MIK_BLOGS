@@ -25,7 +25,7 @@ const {isLoggedIn,isAuthor}=require("./middleware.js");
 
 main()
 .then(()=>{
-    console.log(process.env.ATLASDB_URL);
+   
     console.log("connected to DB")
 
 })
@@ -39,14 +39,15 @@ async function main(){
 }
 const sessionOptions = {
     secret: process.env.SESSION_SECRET,
-    resave:false,
-    saveUninitialized:false,
+    resave: false,
+    saveUninitialized: false,
+    proxy: true,
     cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
-}
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
+    }
 };
 app.use(cors({
     origin: process.env.FRONTEND_URL,
@@ -56,6 +57,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+app.set("trust proxy", 1);
 app.use(session(sessionOptions));
 app.use(passport.initialize()) ;
 app.use(passport.session());
