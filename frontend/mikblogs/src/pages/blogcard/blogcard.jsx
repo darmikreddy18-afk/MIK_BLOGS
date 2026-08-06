@@ -45,10 +45,10 @@ function BlogCard({blogid,title,author,category,content,image,onClick,comments,l
         <div className="blog-card" onClick={onClick}>
 
             <img
-                src={blog.image.url}
-                alt="Blog"
-                className="blog-image"
-            />
+    src={image}
+    alt="Blog"
+    className="blog-image"
+/>
 
             <div className="card-content">
 
