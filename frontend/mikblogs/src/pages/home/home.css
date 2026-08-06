@@ -1,0 +1,37 @@
+.home-container{
+    /* Sidebar width + spacing */
+    margin-top: 60px;     /* Navbar height */
+
+    min-height: 100vh;
+
+    padding: 25px;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(255,122,0,0.08),
+        transparent 25%
+    ),
+    #121212;
+   
+}
+
+.home-title{
+    color: white;
+    margin-left:265px;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+.cards-container{
+    margin-left: 265px;
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+

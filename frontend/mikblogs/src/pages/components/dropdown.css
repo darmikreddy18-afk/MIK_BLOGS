@@ -1,0 +1,43 @@
+.blog-dropdown{
+    position:absolute;
+
+    top:100%;
+    right:0;
+
+    margin-top:15px;
+    margin-left: 20px;
+
+    width:200px;
+
+    background:#1E1E1E;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
+
+    z-index:9999;
+
+    overflow:hidden;
+}
+.blog-dropdown-item{
+    width:100%;
+    background:none;
+    border:none;
+    color:white;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    font-size:.95rem;
+}
+
+.blog-dropdown-item:hover{
+    background:#2A2A2A;
+}
+
+.blog-dropdown-item:last-child:hover{
+    color:#ff5b5b;
+}

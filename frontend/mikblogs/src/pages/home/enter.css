@@ -1,0 +1,40 @@
+.orange-text{
+    color: #FF7A00;
+}
+
+.orange-btn{
+    background-color: #FF7A00;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+
+}
+
+.orange-btn:hover{
+    background-color: #e66d00;
+}
+
+
+.orange-outline-btn{
+    text-decoration: none;
+}
+.orange-outline-btn{
+    background-color: transparent;
+    color: #FF7A00;
+    border: 2px solid #FF7A00;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.orange-outline-btn:hover{
+    background-color: #FF7A00;
+    color: white;
+}

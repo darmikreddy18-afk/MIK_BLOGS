@@ -1,0 +1,178 @@
+/* ---------- Page ---------- */
+
+.library-page{
+    min-height:100vh;
+    width:100%;
+    background:#0F0F0F;
+    color:white;
+    padding-top:90px;
+    padding-bottom:60px;
+}
+
+/* ---------- Header ---------- */
+
+.library-header{
+    margin-left:600px;
+    margin-bottom:45px;
+}
+
+.library-header h1{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    font-size:2.8rem;
+    font-weight:700;
+    color:white;
+}
+
+.library-header h1 i{
+    color:#FF7A00;
+   
+}
+
+.library-header p{
+    margin-top:10px;
+    color:#A0A0A0;
+    font-size:1rem;
+    margin-left: 40px;
+}
+
+/* ---------- Blogs ---------- */
+
+.library-section{
+    margin-left:400px;
+
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+/* Reusing Profile Card Styles */
+
+.profile-blog-card{
+    width:82%;
+    max-width:950px;
+
+    display:flex;
+    gap:24px;
+
+    background:#1B1B1B;
+    border:1px solid #2D2D2D;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.profile-blog-card:hover{
+    border-color:#FF7A00;
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(255,122,0,.12);
+}
+
+.profile-blog-image{
+    width:300px;
+    height:220px;
+    object-fit:cover;
+}
+
+.profile-blog-content{
+    flex:1;
+    padding:24px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.profile-blog-category{
+    width:max-content;
+
+    background:#FF7A00;
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:25px;
+
+    font-size:.82rem;
+}
+
+.profile-blog-title{
+    margin:18px 0 12px;
+    font-size:1.55rem;
+    color:white;
+}
+
+.profile-blog-desc{
+    color:#B8B8B8;
+    line-height:1.8;
+    flex:1;
+}
+
+.profile-blog-date{
+    margin-top:20px;
+    color:#8C8C8C;
+    font-size:.9rem;
+}
+
+/* ---------- Empty Library ---------- */
+
+.empty-library{
+    width:82%;
+    max-width:900px;
+
+    height:55vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.empty-library i{
+    font-size:5rem;
+    color:#FF7A00;
+    margin-bottom:25px;
+}
+
+.empty-library h2{
+    font-size:2rem;
+    margin-bottom:12px;
+    color:white;
+}
+
+.empty-library p{
+    color:#A0A0A0;
+    line-height:1.8;
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:900px){
+
+    .library-header,
+    .library-section{
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+    .profile-blog-card{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .profile-blog-image{
+        width:100%;
+        height:240px;
+    }
+
+}

@@ -1,0 +1,57 @@
+.signup-container{
+    min-height: 100vh;
+    background-color: #121212;
+}
+
+.signup-card{
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(255,122,0,0.2);
+}
+
+.orange-text{
+    color: #FF7A00;
+}
+
+.custom-input{
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+}
+
+.custom-input:focus{
+    background-color: #2a2a2a;
+    color: white;
+    border-color: #FF7A00;
+    box-shadow: 0 0 8px rgba(255,122,0,0.5);
+}
+
+.custom-input::placeholder{
+    color: #888;
+}
+
+.orange-btn{
+    background-color: #FF7A00 !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600;
+    width: 100%;
+    padding: 12px;
+}
+
+.orange-btn:hover{
+    background-color: #e66d00 !important;
+    color: white !important;
+}
+.login-link{
+    color: #FF7A00;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link:hover{
+    color: #ff9d3f;
+    text-decoration: underline;
+}

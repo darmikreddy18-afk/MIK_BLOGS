@@ -1,0 +1,9 @@
+.profile-link{
+    color:white;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.profile-link:hover{
+    color:#FF7A00;
+}
