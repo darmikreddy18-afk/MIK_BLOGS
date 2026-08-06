@@ -30,7 +30,7 @@ main()
 
 })
 .catch(()=>{
-    console.log("error");
+   console.log("Database connection error:", err);
 
 });
 async function main(){
