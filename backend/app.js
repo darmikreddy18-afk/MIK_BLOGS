@@ -29,7 +29,7 @@ main()
     console.log("connected to DB")
 
 })
-.catch(()=>{
+.catch((err)=>{
    console.log("Database connection error:", err);
 
 });
