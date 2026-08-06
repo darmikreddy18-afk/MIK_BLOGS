@@ -163,7 +163,7 @@ const removeComment = (commentId) => {
     </div>
 
                     <img
-                        src={`http://localhost:8080${blog.image.url}`}
+                     src= {`${API_URL}${blog.image.url}`}
                         alt={blog.title}
                         className="blog-cover"
                     />
