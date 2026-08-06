@@ -9,18 +9,16 @@ function Comment({ blogid,onCommentAdded}) {
     if (!content.trim()) return;
 
     const res = await fetch(
-        `${API_URL}/${blogid}/comments`,
-        {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                content
-            })
-        }
-    );
+    `${API_URL}/blogs/${blogid}/comments`,
+    {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ content })
+    }
+);
 
     if (res.ok) {
         setContent("");
