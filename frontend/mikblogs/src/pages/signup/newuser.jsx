@@ -1,7 +1,8 @@
 import "./newuser.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import { API_URL } from "../../config.js"
+
 function Signup() {
 const [username, setUsername] = useState("");
 const [email, setEmail] = useState("");
@@ -23,6 +24,14 @@ const [password, setPassword] = useState("");
             password
         })
     });
+    if (response.ok) {
+      navigate("/home");
+    } else {
+      const error = await response.json();
+      alert(error.message || "Signup failed");
+    }
+    
+
 };
     return (
         <div className="signup-container d-flex justify-content-center align-items-center">
