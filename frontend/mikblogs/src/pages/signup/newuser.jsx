@@ -4,6 +4,7 @@ import { Link,useNavigate} from "react-router-dom";
 import { API_URL } from "../../config.js"
 
 function Signup() {
+const[navigate]=useNavigate();
 const [username, setUsername] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
