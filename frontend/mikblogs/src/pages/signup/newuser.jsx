@@ -7,31 +7,32 @@ function Signup() {
 const [username, setUsername] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-    const handleSubmit = async (e) => {
-    e.preventDefault();
+   const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    console.log(username, email, password);
-
-    await fetch(`${API_URL}/signup`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username,
-            email,
-            password
-        })
+  try {
+    const response = await fetch(`${API_URL}/signup`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
     });
+
     if (response.ok) {
       navigate("/home");
     } else {
-      const error = await response.json();
-      alert(error.message || "Signup failed");
+      const message = await response.text();
+      alert(message);
     }
-    
-
+  } catch (err) {
+    console.error(err);
+  }
 };
     return (
         <div className="signup-container d-flex justify-content-center align-items-center">
