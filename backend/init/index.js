@@ -1,20 +1,62 @@
-const mongoose=require("mongoose");
-const mongo_url='mongodb://127.0.0.1:27017/mikblogs'; 
-const Blog=require("../models/blog.js");
-main()
-.then(async ()=>{
-    console.log("connected to DB")
+const mongoose = require("mongoose");
+const path = require("path");
+const Category = require("../models/category.js")
 
-
-})
-.catch(()=>{
-    console.log("error");
-
+require("dotenv").config({
+    path: path.join(__dirname, "../.env")
 });
-async function main(){
-    await mongoose.connect(mongo_url);
 
+
+const categories = [
+    "Web Development",
+    "App Development",
+    "AI & Machine Learning",
+    "Data Science",
+    "DSA",
+    "Cybersecurity",
+    "Cloud Computing",
+    "DevOps",
+    "Projects",
+    "Hackathons",
+    "College Life",
+    "Internships",
+    "Placements",
+    "Career",
+    "Entrepreneurship",
+    "Startups",
+    "Electronics",
+    "Robotics",
+    "Research",
+    "Open Source",
+    "Personal Development",
+    "Education",
+    "Technology",
+    "Travel",
+    "Photography",
+    "Writing",
+    "Other"
+];
+
+async function seedCategories() {
+    try {
+        await mongoose.connect(process.env.ATLASDB_URL);
+
+        console.log("Connected to MongoDB");
+
+        await Category.deleteMany({});
+
+        await Category.insertMany(
+            categories.map(name => ({ name }))
+        );
+
+        console.log("Categories added successfully");
+
+        await mongoose.connection.close();
+
+        console.log("Database connection closed");
+    } catch (err) {
+        console.error("Error:", err);
+    }
 }
 
-
-
+seedCategories();

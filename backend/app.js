@@ -17,8 +17,8 @@ const session=require("express-session");
 const methodOverride=require("method-override");
 const Blog=require("./models/blog.js");
 const multer = require("multer");
+const Category=require("./models/category.js");
 const { storage } = require("./cloudConfig");
-
 const upload = multer({ storage });
 const Comment=require("./models/comments.js")
 const {isLoggedIn,isAuthor}=require("./middleware.js");
@@ -404,6 +404,17 @@ app.post("/blogs/:id/like",isLoggedIn,async(req,res)=>{
         likes: blog.likes.length
     });
 })
+app.get("/categories", async (req, res) => {
+    try {
+        const categories = await Category.find().sort({ name: 1 });
+
+        res.json(categories);
+    } catch (err) {
+        res.status(500).json({
+            message: err.message
+        });
+    }
+});
 app.listen(port,()=>{
     console.log("app is listening");
 });
