@@ -1,14 +1,44 @@
 import "./newblog.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Select from "react-select";
 import { API_URL } from "../../../config.js";
 function Newblog() {
 
     const [title, setTitle] = useState("");
-    const [category, setCategory] = useState("Projects");
+   const [category, setCategory] = useState(null);
+   const [categories, setCategories] = useState([]);
     const [content, setContent] = useState("");
     const [image, setImage] = useState(null);
      const navigate = useNavigate();
+     useEffect(() => {
+
+        const fetchCategories = async () => {
+            try {
+
+                const res = await fetch(`${API_URL}/categories`);
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch categories");
+                }
+
+                const data = await res.json();
+
+                setCategories(data);
+
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchCategories();
+
+    }, []);
+      const categoryOptions = categories.map((cat) => ({
+        value: cat._id,
+        label: cat.name
+    }));
+
     const handleSubmit = async () => {
 
     const formData = new FormData();
@@ -17,6 +47,7 @@ function Newblog() {
     formData.append("category", category);
     formData.append("content", content);
     formData.append("image", image);
+
 
     const res = await fetch(`${API_URL}/blogs`, {
         method: "POST",
@@ -65,18 +96,16 @@ function Newblog() {
                 >
                 </input>
 
-                <select
-                    className="blog-select"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                >
-                    <option>Projects</option>
-                    <option>MERN</option>
-                    <option>DSA</option>
-                    <option>Hackathons</option>
-                    <option>College Life</option>   
-                    <option>Electronics</option>
-                </select>
+               
+                <Select
+    className="category-select"
+    classNamePrefix="category-select"
+    options={categoryOptions}
+    value={category}
+    onChange={setCategory}
+    placeholder="Search or select a category..."
+    isSearchable
+/>
 
                 <textarea
                     className="blog-content"
