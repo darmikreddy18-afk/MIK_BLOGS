@@ -40,11 +40,13 @@ function Newblog() {
     }));
 
     const handleSubmit = async () => {
+        console.log("SELECTED CATEGORY:", category);
+console.log("CATEGORY ID:", category?.value);
 
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("category", category);
+    formData.append("category", category.value);
     formData.append("content", content);
     formData.append("image", image);
 

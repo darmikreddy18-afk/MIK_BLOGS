@@ -44,7 +44,7 @@ function Home()  {
                         title={blog.title}
                         author={blog.author.username}
                         image={blog.image.url}
-                        category={blog.category}
+                        category={blog.category?.name}
                         content={blog.content}
                         onClick={()=>showablog(blog._id)}
                         comments={blog.comment}

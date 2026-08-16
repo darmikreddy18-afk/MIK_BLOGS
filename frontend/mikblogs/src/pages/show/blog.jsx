@@ -132,9 +132,9 @@ const removeComment = (commentId) => {
 
         <div className="right-meta">
 
-            <span className="blog-category">
-                {blog.category}
-            </span>
+           <span className="blog-category">
+    {blog.category.name}
+</span>
 
             <div className="menu-container">
                 <button className="menu-btn"
