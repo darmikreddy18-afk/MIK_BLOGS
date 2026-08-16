@@ -108,7 +108,7 @@ res.json(req.user);
 
 })  
 app.get("/blogs",async(req,res)=>{
-        let blogs= await Blog.find().populate("author").populate("comment");
+        let blogs= await Blog.find().populate("author").populate("comment").populate("category", "name");
         res.json(blogs);
     })
 
@@ -151,7 +151,7 @@ app.post(
 );
 app.get("/blogs/:id",async(req,res)=>{
     let {id}=req.params
-    let blog=await Blog.findById(id).populate("author","username");
+    let blog=await Blog.findById(id).populate("author","username").populate("category", "name");
     res.json(blog);
 })
 app.patch(
